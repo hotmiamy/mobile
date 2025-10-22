@@ -19,7 +19,7 @@ Este projeto faz parte das sessões práticas de React Native, com foco em:
 - Exibição de **alertas e modais**
 - Aplicação de **estilos com StyleSheet**
 
-Cada exercício tem uma breve explicação e imagens representando o resultado visual.
+Cada exercício tem imagens representando o resultado visual.
 
 ---
 
