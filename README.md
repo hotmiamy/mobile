@@ -54,35 +54,8 @@ Cada exercício tem uma breve explicação e imagens representando o resultado v
 
 ---
 
-### 🧠 Conceitos Aplicados
-- Componentes funcionais
-- Uso de `useState`
-- Navegação com `expo-router`
-- Exibição de modal (`Modal`, `Pressable`)
-- Estilização com `StyleSheet`
-
----
-
 ## 🪟 Exemplo de Modal
 
 ### 🖼️ Imagem do Modal
 ![alt text](Screenshot_20251022_172637.png)
 ![alt text](Screenshot_20251022_172654.png)
-
----
-
-### 📋 Descrição
-
-Este exemplo demonstra o funcionamento básico de um **modal** no React Native, utilizando os componentes `Modal`, `Pressable` e `StyleSheet`.
-
-O usuário pode abrir e fechar o modal clicando em botões, e o fundo fica levemente escurecido enquanto o modal está ativo.
-
----
-
-### 🧠 Conceitos Aplicados
-- Uso de estado (`useState`) para controlar a visibilidade
-- Animação `slide` no modal
-- Fundo translúcido com `rgba`
-- Botões estilizados para abrir e fechar
-
----
