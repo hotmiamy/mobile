@@ -1,17 +1,21 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Modal, Pressable } from 'react-native';
 import { Link } from 'expo-router';
 
 export default function RegisterScreen() {
   const [idade, setIdade] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   const handleSave = () => {
     if (!idade) {
-      alert('Por favor, insira sua idade.');
+      setModalMessage('Por favor, insira sua idade.');
+      setModalVisible(!modalVisible);
       return;
     }
 
-    alert(`Sua idade é ${idade} anos.`);
+    setModalMessage(`Idade ${idade} salva com sucesso!`);
+    setModalVisible(!modalVisible);
   };
 
   return (
@@ -30,6 +34,24 @@ export default function RegisterScreen() {
       <Link href="/" asChild>
         <Button title="Voltar Para Home"/>
       </Link>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(!modalVisible)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalbox}>
+            <Text style={styles.modalText}>{modalMessage}</Text>
+            <Pressable
+              style={styles.modalbutton}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.modalButtonText}>Fechar</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -54,5 +76,33 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     textAlign: 'left',
     marginBottom: 20,
-  }
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalbox: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 25,
+    alignItems: 'center',
+    elevation: 5,
+  },
+  modalText: {
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign: 'center'
+  },
+  modalbutton: {
+    backgroundColor: '#2196F3',
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    borderRadius: 8,
+  },
+  modalButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
 });
