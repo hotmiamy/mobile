@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { Link } from 'expo-router';
 
 export default function RegisterScreen() {
   const [idade, setIdade] = useState('');
@@ -23,7 +24,12 @@ export default function RegisterScreen() {
         value={idade}
         onChangeText={setIdade}
       />
-      <Button title="Salvar" onPress={handleSave} />
+      <View style={{ marginBottom: 10 }}>
+        <Button title="Salvar" onPress={handleSave} />
+      </View>
+      <Link href="/" asChild>
+        <Button title="Voltar Para Home"/>
+      </Link>
     </View>
   );
 }
@@ -48,5 +54,5 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     textAlign: 'left',
     marginBottom: 20,
-  },
+  }
 });
